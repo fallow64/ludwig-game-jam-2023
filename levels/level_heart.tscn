@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/world/heart_bg.png" type="Texture" id=2]
+[ext_resource path="res://loading_zone.gd" type="Script" id=3]
+[ext_resource path="res://level.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 16 )
+
+[node name="LevelHeart" type="YSort"]
+position = Vector2( -112, -112 )
+script = ExtResource( 4 )
+display_name = "The Heart"
+
+[node name="HeartBg" type="Node2D" parent="."]
+position = Vector2( 112, -1 )
+
+[node name="Sprite" type="Sprite" parent="HeartBg"]
+position = Vector2( 0, -47 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -196608, 18, 0, -196607, 18, 0, -196606, 18, 0, -196604, 18, 0, -196603, 18, 0, -196602, 18, 0, -131072, 18, 0, -131071, 18, 0, -131070, 18, 0, -131068, 18, 0, -131067, 18, 0, -131066, 18, 0, -65536, 18, 0, -65535, 18, 0, -65534, 18, 0, -65532, 18, 0, -65531, 18, 0, -65530, 18, 0, 0, 32, 0, 1, 32, 0, 2, 32, 0, 3, 31, 0, 4, 32, 0, 5, 32, 0, 6, 32, 0, 65536, 32, 0, 65537, 32, 0, 65538, 32, 0, 65539, 31, 0, 65540, 32, 0, 65541, 32, 0, 65542, 32, 0, 196607, 15, 1, 131072, 32, 0, 131073, 32, 0, 131074, 32, 0, 131075, 31, 0, 131076, 32, 0, 131077, 32, 0, 131078, 32, 0, 262143, 15, 1, 196608, 32, 0, 196609, 32, 0, 196610, 32, 0, 196611, 31, 0, 196612, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 327679, 15, 1, 262144, 32, 0, 262145, 32, 0, 262146, 32, 0, 262147, 31, 0, 262148, 32, 0, 262149, 32, 0, 262150, 32, 0, 327680, 32, 0, 327681, 32, 0, 327682, 32, 0, 327683, 31, 0, 327684, 32, 0, 327685, 32, 0, 327686, 32, 0, 393216, 32, 0, 393217, 32, 0, 393218, 32, 0, 393219, 31, 0, 393220, 32, 0, 393221, 32, 0, 393222, 32, 0, 458755, 31, 0 )
+
+[node name="Wall" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -196609, 15, 4, -262144, 15, 0, -262143, 15, 0, -262142, 15, 0, -262141, 15, 0, -262140, 15, 0, -262139, 15, 0, -262138, 15, 0, -262137, 15, 7, -131073, 15, 1, -196601, 15, 2, -65537, 15, 1, -131065, 15, 2, -1, 15, 1, -65529, 15, 2, 65535, 15, 1, 7, 15, 2, 131071, 15, 1, 65543, 15, 2, 131079, 15, 11, 262151, 15, 10, 393215, 15, 1, 327687, 15, 2, 458751, 15, 1, 393223, 15, 2, 524287, 15, 5, 458752, 15, 3, 458753, 15, 3, 458754, 15, 9, 458756, 15, 10, 458757, 15, 3, 458758, 15, 3, 458759, 15, 6 )
+
+[node name="LoadingZoneStomach" type="Area2D" parent="."]
+position = Vector2( 272, 112 )
+script = ExtResource( 3 )
+current_level = "heart"
+to_level = "stomach"
+preserve_y = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZoneStomach"]
+shape = SubResource( 1 )
+
+[node name="From_stomach" type="Node2D" parent="."]
+position = Vector2( 240, 112 )
+
+[node name="LoadingZoneYard" type="Area2D" parent="."]
+position = Vector2( 112, 272 )
+script = ExtResource( 3 )
+current_level = "heart"
+to_level = "yard"
+preserve_x = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZoneYard"]
+shape = SubResource( 2 )
+
+[node name="From_yard" type="Node2D" parent="."]
+position = Vector2( 112, 240 )
+
+[node name="LoadingZoneLudwig" type="Area2D" parent="."]
+position = Vector2( 112, -80 )
+script = ExtResource( 3 )
+current_level = "heart"
+to_level = "ludwig"
+preserve_x = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZoneLudwig"]
+shape = SubResource( 3 )
+
+[node name="From_ludwig" type="Node2D" parent="."]
+position = Vector2( 112, -48 )

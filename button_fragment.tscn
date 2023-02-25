@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/world/button_fragment_1.png" type="Texture" id=3]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, -3, 0, 0, 0, 0, 6, -8, 0, 0, 0, 0, -4, -14, 0, 0, 0, 0, -13, -13, 0, 0, 0, 0, -17, -4, 0, 0, 0, 0, -23, 6, 0, 0, 0, 0, -25, 16, 0, 0, 0, 0, -16, 22, 0, 0, 0, 0, -3, 23, 0, 0, 0, 0, 7, 25, 0, 0, 0, 0, 22, 26, 0, 0, 0, 0, 30, 23, 0, 0, 0, 0, 39, 9, 0, 0, 0, 0, 40, -7, 0, 0, 0, 0, 39, -21, 0, 0, 0, 0, 35, -34, 0, 0, 0, 0, 27, -42, 0, 0, 0, 0, 12, -47, 0, 0, 0, 0, -8, -53, 0, 0, 0, 0, -34, -52, 0, 0, 0, 0, -53, -44, 0, 0, 0, 0, -77, -22, 0, 0, 0, 0, -82, 13, 0, 0, 0, 0, -81, 37, 0, 0, 0, 0, -78, 54, 0, 0, 0, 0, -30, 79, 0, 0, 0, 0, 27, 86, 0, 0, 0, 0, 83, 86, 0, 0, 0, 0, 120, 54, 0, 0, 0, 0, 133, -4, 0, 0, 0, 0, 134, -50, 0, 0, 0, 0, 133, -83, 0, 0, 0, 0, 125, -104, 0, 0, 0, 0, 119, -111, 0, 0, 0, 0, 115, -123, 0, 0, 0, 0, 99, -151, 0, 0, 0, 0, 63, -178, 0, 0, 0, 0, 14, -204, 0, 0, 0, 0, -54, -225, 0, 0, 0, 0, -156, -212, 0, 0, 0, 0, -227, -180, 0, 0, 0, 0, -275, -118, 0, 0, 0, 0, -287, -50, 0, 0, 0, 0, -286, -35, 0, 0, 0, 0, -286, 30, 0, 0, 0, 0, -287, 121, 0, 0, 0, 0, -270, 172, 0, 0, 0, 0, -163, 238, 0, 0, 0, 0, 29, 278, 0, 0, 0, 0, 185, 283, 0, 0, 0, 0, 236, 240, 0, 0, 0, 0, 269, 174, 0, 0, 0, 0, 296, 115, 0, 0, 0, 0, 322, 57, 0, 0, 0, 0, 355, -4, 0, 0, 0, 0, 396, -105, 0, 0, 0, 0, 427, -149, 0, 0, 0, 0, 445, -185, 0, 0, 0, 0, 808, -904, 0, 0, 0, 0, 1306, -1591, 0, 0, 0, 0, 1718, -2268, 0, 0, 0, 0, 2128, -2951 )
+}
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Interactable
+
+
+onready var tween: Tween = $\"../Tween\"
+
+var inc := 0.0
+var speed := 750.0
+var playing := false
+
+
+func _process(delta):
+	if playing:
+		inc+=delta*speed
+		$\"../../\".offset=inc
+
+
+func _get_interaction_text() -> String:
+	return \"button fragment\"
+
+
+# virtual function
+func _interact() -> void:
+	playing = true
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.5, 8.5 )
+
+[node name="ButtonFragment" type="Path2D"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = -0.488297
+loop = false
+
+[node name="ButtonFragment" type="Node2D" parent="PathFollow2D"]
+rotation = 0.488297
+scale = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="PathFollow2D/ButtonFragment"]
+texture = ExtResource( 3 )
+
+[node name="Interactable" type="StaticBody2D" parent="PathFollow2D/ButtonFragment"]
+collision_layer = 2
+script = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/ButtonFragment/Interactable"]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="PathFollow2D/ButtonFragment"]

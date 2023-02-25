@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://interaction/interaction.gd" type="Script" id=2]
+[ext_resource path="res://assets/ludwig/animations.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://shake.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 1.99998
+height = 7.00004
+
+[node name="Player" type="KinematicBody2D" groups=["players"]]
+scale = Vector2( 2, 2 )
+collision_layer = 0
+collision_mask = 5
+script = ExtResource( 1 )
+speed = 144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -12.5 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 4 )
+
+[node name="InteractionRayCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -2 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 16, 0 )
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -15 )
+frames = ExtResource( 3 )
+animation = "idle"
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

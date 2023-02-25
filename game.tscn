@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game.gd" type="Script" id=2]
+[ext_resource path="res://levels/level_stomach.tscn" type="PackedScene" id=3]
+
+[node name="Game" type="Node"]
+script = ExtResource( 2 )
+initial_level = ExtResource( 3 )
+
+[node name="GameSort" type="YSort" parent="."]
+
+[node name="Player" parent="GameSort" instance=ExtResource( 1 )]

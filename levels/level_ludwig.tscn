@@ -1,0 +1,162 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://level.gd" type="Script" id=1]
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://loading_zone.gd" type="Script" id=3]
+[ext_resource path="res://assets/world/desk_gaming.png" type="Texture" id=4]
+[ext_resource path="res://assets/world/jackie_chan.png" type="Texture" id=5]
+[ext_resource path="res://assets/world/couch_small.png" type="Texture" id=7]
+[ext_resource path="res://assets/world/flowers.png" type="Texture" id=8]
+[ext_resource path="res://assets/world/rug.png" type="Texture" id=9]
+[ext_resource path="res://interaction/inspectable.gd" type="Script" id=10]
+[ext_resource path="res://assets/world/chair_gaming.png" type="Texture" id=11]
+[ext_resource path="res://assets/world/computer.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 13, 11.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 43, 21 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.6667, 4.66667 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.6667, 11.6667 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 12.5417, 14.6364 )
+
+[node name="LevelLudwig" type="YSort"]
+script = ExtResource( 1 )
+display_name = "The Heart - Ludwig's Room"
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -131072, 17, 0, -131071, 17, 0, -131070, 17, 0, -131069, 17, 0, -131068, 17, 0, -131067, 17, 0, -65536, 16, 0, -65535, 16, 0, -65534, 16, 0, -65533, 16, 0, -65532, 16, 0, -65531, 16, 0, 0, 16, 0, 1, 16, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 65536, 20, 0, 65537, 20, 0, 65538, 20, 0, 65539, 20, 0, 65540, 20, 0, 65541, 20, 0, 131072, 20, 0, 131073, 20, 0, 131074, 20, 0, 131075, 20, 0, 131076, 20, 0, 131077, 20, 0, 196608, 20, 0, 196609, 20, 0, 196610, 20, 0, 196611, 20, 0, 196612, 20, 0, 196613, 20, 0, 262144, 20, 0, 262145, 20, 0, 262146, 20, 0, 262147, 20, 0, 262148, 20, 0, 262149, 20, 0, 327684, 20, 0 )
+
+[node name="Wall" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -131073, 15, 4, -196608, 15, 0, -196607, 15, 0, -196606, 15, 0, -196605, 15, 0, -196604, 15, 0, -196603, 15, 0, -196602, 15, 7, -65537, 15, 1, -131066, 15, 2, -1, 15, 1, -65530, 15, 2, 65535, 15, 1, 6, 15, 2, 131071, 15, 1, 65542, 15, 2, 196607, 15, 1, 131078, 15, 2, 262143, 15, 1, 196614, 15, 2, 327679, 15, 1, 262150, 15, 2, 393215, 15, 5, 327680, 15, 3, 327681, 15, 3, 327682, 15, 3, 327683, 15, 9, 327685, 15, 10, 327686, 15, 6 )
+
+[node name="From_heart" type="Node2D" parent="."]
+position = Vector2( 144, 176 )
+
+[node name="LoadingZone" type="Area2D" parent="."]
+position = Vector2( 144, 208 )
+script = ExtResource( 3 )
+current_level = "ludwig"
+to_level = "heart"
+preserve_x = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZone"]
+shape = SubResource( 1 )
+
+[node name="Chair" type="Node2D" parent="."]
+position = Vector2( 97, 69 )
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="Chair"]
+position = Vector2( 0, -16 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chair"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/StaticBody2D"]
+position = Vector2( -1, -10.5 )
+shape = SubResource( 7 )
+
+[node name="Desk" type="Node2D" parent="."]
+position = Vector2( 101, 39 )
+
+[node name="Sprite" type="Sprite" parent="Desk"]
+position = Vector2( -4, -5 )
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Desk"]
+position = Vector2( -4, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/StaticBody2D"]
+position = Vector2( 0, -4 )
+shape = SubResource( 6 )
+
+[node name="Computer" type="Sprite" parent="Desk"]
+position = Vector2( 32, -19 )
+texture = ExtResource( 12 )
+
+[node name="JackieChan" type="Sprite" parent="."]
+position = Vector2( 26, 15 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="JackieChan"]
+position = Vector2( 0.666666, 18 )
+collision_layer = 3
+script = ExtResource( 10 )
+doer = "ludwig"
+object_name = "jackie chan"
+dialogue = "Man... if only I could look forwards like that."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JackieChan/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Flowers" type="Node2D" parent="."]
+position = Vector2( 173, 111 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Sprite" type="Sprite" parent="Flowers"]
+position = Vector2( 1, -6 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Flowers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/StaticBody2D"]
+position = Vector2( 0.833359, -7.5 )
+shape = SubResource( 4 )
+
+[node name="CouchSmall2" type="Node2D" parent="."]
+position = Vector2( 173, 86 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Sprite" type="Sprite" parent="CouchSmall2"]
+position = Vector2( 0, -12.5 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CouchSmall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CouchSmall2/StaticBody2D"]
+position = Vector2( 1.75003, -17.3636 )
+shape = SubResource( 5 )
+
+[node name="CouchSmall" type="Node2D" parent="."]
+position = Vector2( 173, 156 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Sprite" type="Sprite" parent="CouchSmall"]
+position = Vector2( 0, -13.3333 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CouchSmall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CouchSmall/StaticBody2D"]
+position = Vector2( 1.70836, -16 )
+shape = SubResource( 5 )
+
+[node name="Rug" type="Node2D" parent="."]
+position = Vector2( 97, 145 )
+
+[node name="Sprite" type="Sprite" parent="Rug"]
+position = Vector2( 0, -36 )
+z_index = -1
+texture = ExtResource( 9 )

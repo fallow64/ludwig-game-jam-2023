@@ -1,0 +1,296 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/world/street_sign.png" type="Texture" id=2]
+[ext_resource path="res://interaction/inspectable.gd" type="Script" id=3]
+[ext_resource path="res://assets/world/yarn_red.png" type="Texture" id=4]
+[ext_resource path="res://assets/world/cat_mouse_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/world/cat_mouse_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/world/yarn_green.png" type="Texture" id=7]
+[ext_resource path="res://assets/world/cat_tower_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/world/cat_tower_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/world/cat_tower_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/world/cat_pole.png" type="Texture" id=11]
+[ext_resource path="res://loading_zone.gd" type="Script" id=12]
+[ext_resource path="res://assets/world/lint_small.png" type="Texture" id=13]
+[ext_resource path="res://levels/level_stomach.gd" type="Script" id=14]
+[ext_resource path="res://assets/world/cat_bowl.png" type="Texture" id=15]
+[ext_resource path="res://assets/world/welcome_sign.png" type="Texture" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.71429, 4.57143 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.7143, 6 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 11.8261, 5.56522 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 14.0606, 3.63636 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 12.0979, 5.40085 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 5.18482, 3.02448 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 48, 13.5 )
+
+[node name="LevelStomach" type="YSort"]
+position = Vector2( -240, -175 )
+script = ExtResource( 14 )
+display_name = "The Stomach"
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -262144, 536870930, 0, -262143, 536870930, 0, -262142, 536870930, 0, -262141, 536870930, 0, -262140, 536870930, 0, -262139, 536870930, 0, -262138, 536870930, 0, -262137, 536870930, 0, -262136, 536870930, 0, -262135, 536870930, 0, -262134, 536870930, 0, -262133, 536870930, 0, -262132, 536870930, 0, -262131, 536870930, 0, -262130, 536870930, 0, -196608, 18, 0, -196607, 18, 0, -196606, 18, 0, -196605, 18, 0, -196604, 18, 0, -196603, 18, 0, -196602, 18, 0, -196601, 18, 0, -196600, 18, 0, -196599, 18, 0, -196598, 18, 0, -196597, 18, 0, -196596, 18, 0, -196595, 18, 0, -196594, 18, 0, -131072, 18, 0, -131071, 18, 0, -131070, 18, 0, -131069, 18, 0, -131068, 18, 0, -131067, 18, 0, -131066, 18, 0, -131065, 18, 0, -131064, 18, 0, -131063, 18, 0, -131062, 18, 0, -131061, 18, 0, -131060, 18, 0, -131059, 18, 0, -131058, 18, 0, -65536, 18, 0, -65535, 18, 0, -65534, 18, 0, -65533, 18, 0, -65532, 18, 0, -65531, 18, 0, -65530, 18, 0, -65529, 18, 0, -65528, 18, 0, -65527, 18, 0, -65526, 18, 0, -65525, 18, 0, -65524, 18, 0, -65523, 18, 0, -65522, 18, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 14, 14, 0, 131070, 18, 0, 131071, 18, 0, 65536, 14, 0, 65537, 14, 0, 65538, 14, 0, 65539, 14, 0, 65540, 14, 0, 65541, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 14, 0, 65545, 14, 0, 65546, 14, 0, 65547, 14, 0, 65548, 14, 0, 65549, 14, 0, 65550, 14, 0, 65551, 536870930, 0, 65552, 536870930, 0, 196606, 18, 0, 196607, 18, 0, 131072, 14, 0, 131073, 14, 0, 131074, 14, 0, 131075, 14, 0, 131076, 14, 0, 131077, 14, 0, 131078, 14, 0, 131079, 14, 0, 131080, 14, 0, 131081, 14, 0, 131082, 14, 0, 131083, 14, 0, 131084, 14, 0, 131085, 14, 0, 131086, 14, 0, 131087, 18, 0, 131088, 18, 0, 262142, 18, 0, 262143, 18, 0, 196608, 14, 0, 196609, 14, 0, 196610, 14, 0, 196611, 14, 0, 196612, 14, 0, 196613, 14, 0, 196614, 14, 0, 196615, 14, 0, 196616, 14, 0, 196617, 14, 0, 196618, 14, 0, 196619, 14, 0, 196620, 14, 0, 196621, 14, 0, 196622, 14, 0, 196623, 18, 0, 196624, 18, 0, 327678, 18, 0, 327679, 18, 0, 262144, 14, 0, 262145, 14, 0, 262146, 14, 0, 262147, 14, 0, 262148, 14, 0, 262149, 14, 0, 262150, 14, 0, 262151, 14, 0, 262152, 14, 0, 262153, 14, 0, 262154, 14, 0, 262155, 14, 0, 262156, 14, 0, 262157, 14, 0, 262158, 14, 0, 262159, 18, 0, 262160, 18, 0, 393214, 14, 0, 393215, 14, 0, 327680, 14, 0, 327681, 14, 0, 327682, 14, 0, 327683, 14, 0, 327684, 14, 0, 327685, 14, 0, 327686, 14, 0, 327687, 14, 0, 327688, 14, 0, 327689, 14, 0, 327690, 14, 0, 327691, 14, 0, 327692, 14, 0, 327693, 14, 0, 327694, 14, 0, 327695, 14, 0, 327696, 14, 0, 393216, 14, 0, 393217, 14, 0, 393218, 14, 0, 393219, 14, 0, 393220, 14, 0, 393221, 14, 0, 393222, 14, 0, 393223, 14, 0, 393224, 14, 0, 393225, 14, 0, 393226, 14, 0, 393227, 14, 0, 393228, 14, 0, 393229, 14, 0, 393230, 14, 0, 458752, 14, 0, 458753, 14, 0, 458754, 14, 0, 458755, 14, 0, 458756, 14, 0, 458757, 14, 0, 458758, 14, 0, 458759, 14, 0, 458760, 14, 0, 458761, 14, 0, 458762, 14, 0, 458763, 14, 0, 458764, 14, 0, 458765, 14, 0, 458766, 14, 0, 524295, 14, 0, 589831, 14, 0 )
+
+[node name="Wall" type="TileMap" parent="."]
+z_index = -1
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -262145, 15, 4, -327680, 15, 0, -327679, 15, 0, -327678, 15, 0, -327677, 15, 0, -327676, 15, 0, -327675, 15, 0, -327674, 15, 0, -327673, 15, 0, -327672, 15, 0, -327671, 15, 0, -327670, 15, 0, -327669, 15, 0, -327668, 15, 0, -327667, 15, 0, -327666, 15, 0, -327665, 15, 7, -196609, 15, 1, -262144, 536870927, 131072, -262143, 536870927, 131072, -262142, 536870927, 131072, -262141, 536870927, 131072, -262140, 536870927, 131072, -262139, 536870927, 131072, -262138, 536870927, 131072, -262137, 536870927, 131072, -262136, 536870927, 131072, -262135, 536870927, 131072, -262134, 536870927, 131072, -262133, 536870927, 131072, -262132, 536870927, 131072, -262131, 536870927, 131072, -262130, 536870927, 131072, -262129, 15, 2, -131073, 15, 1, -196608, 15, 65549, -196607, 15, 65549, -196606, 15, 65549, -196605, 15, 65549, -196604, 15, 65549, -196603, 15, 65549, -196602, 15, 65549, -196601, 15, 65549, -196600, 15, 65549, -196599, 15, 65549, -196598, 15, 65549, -196597, 15, 65549, -196596, 15, 65549, -196595, 15, 65549, -196594, 15, 65549, -196593, 15, 2, -65537, 15, 1, -131072, 15, 65549, -131071, 15, 65549, -131070, 15, 65549, -131069, 15, 65549, -131068, 15, 65549, -131067, 15, 65549, -131066, 15, 65549, -131065, 15, 65549, -131064, 15, 65549, -131063, 15, 65549, -131062, 15, 65549, -131061, 15, 65549, -131060, 15, 65549, -131059, 15, 65549, -131058, 15, 65549, -131057, 15, 2, -1, 15, 1, -65536, 15, 65549, -65535, 15, 65549, -65534, 15, 65549, -65533, 15, 65549, -65532, 15, 65549, -65531, 15, 65549, -65530, 15, 65549, -65529, 15, 65549, -65528, 15, 65549, -65527, 15, 65549, -65526, 15, 65549, -65525, 15, 65549, -65524, 15, 65549, -65523, 15, 65549, -65522, 15, 65549, -65521, 15, 2, 65534, 15, 0, 65535, 15, 8, 0, 15, 65549, 1, 15, 65549, 2, 15, 65549, 3, 15, 65549, 4, 15, 65549, 5, 15, 65549, 6, 15, 65549, 7, 15, 65549, 8, 15, 65549, 9, 15, 65549, 10, 15, 65549, 11, 15, 65549, 12, 15, 65549, 13, 15, 65549, 14, 15, 65549, 15, 15, 11, 16, 15, 0, 65536, 15, 65549, 65537, 15, 65549, 65538, 15, 65549, 65539, 15, 65549, 65540, 15, 65549, 65541, 15, 65549, 65542, 15, 65549, 65543, 15, 65549, 65544, 15, 65549, 65545, 15, 65549, 65546, 15, 65549, 65547, 15, 65549, 65548, 15, 65549, 65549, 15, 65549, 65550, 15, 65549, 65551, 536870927, 131072, 65552, 536870927, 131072, 131072, 15, 65549, 131073, 15, 65549, 131074, 15, 65549, 131075, 15, 65549, 131076, 15, 65549, 131077, 15, 65549, 131078, 15, 65549, 131079, 15, 65549, 131080, 15, 65549, 131081, 15, 65549, 131082, 15, 65549, 131083, 15, 65549, 131084, 15, 65549, 131085, 15, 65549, 131086, 15, 65549, 131087, 15, 65549, 131088, 15, 65549, 196608, 15, 65549, 196609, 15, 65549, 196610, 15, 65549, 196611, 15, 65549, 196612, 15, 65549, 196613, 15, 65549, 196614, 15, 65549, 196615, 15, 65549, 196616, 15, 65549, 196617, 15, 65549, 196618, 15, 65549, 196619, 15, 65549, 196620, 15, 65549, 196621, 15, 65549, 196622, 15, 65549, 196623, 15, 65549, 196624, 15, 65549, 262144, 15, 65549, 262145, 15, 65549, 262146, 15, 65549, 262147, 15, 65549, 262148, 15, 65549, 262149, 15, 65549, 262150, 15, 65549, 262151, 15, 65549, 262152, 15, 65549, 262153, 15, 65549, 262154, 15, 65549, 262155, 15, 65549, 262156, 15, 65549, 262157, 15, 65549, 262158, 15, 65549, 262159, 15, 65549, 262160, 15, 65549, 327680, 15, 65549, 327681, 15, 65549, 327682, 15, 65549, 327683, 15, 65549, 327684, 15, 65549, 327685, 15, 65549, 327686, 15, 65549, 327687, 15, 65549, 327688, 15, 65549, 327689, 15, 65549, 327690, 15, 65549, 327691, 15, 65549, 327692, 15, 65549, 327693, 15, 65549, 327694, 15, 65549, 327695, 15, 65549, 327696, 15, 65549, 458750, 15, 3, 458751, 15, 9, 393216, 15, 65549, 393217, 15, 65549, 393218, 15, 65549, 393219, 15, 65549, 393220, 15, 65549, 393221, 15, 65549, 393222, 15, 65549, 393223, 15, 65549, 393224, 15, 65549, 393225, 15, 65549, 393226, 15, 65549, 393227, 15, 65549, 393228, 15, 65549, 393229, 15, 65549, 393230, 15, 65549, 393231, 15, 10, 393232, 15, 3, 524287, 15, 1, 458752, 15, 65549, 458753, 15, 65549, 458754, 15, 65549, 458755, 15, 65549, 458756, 15, 65549, 458757, 15, 65549, 458758, 15, 65549, 458759, 15, 65549, 458760, 15, 65549, 458761, 15, 65549, 458762, 15, 65549, 458763, 15, 65549, 458764, 15, 65549, 458765, 15, 65549, 458766, 15, 65549, 458767, 15, 2, 589823, 15, 5, 524288, 15, 3, 524289, 15, 3, 524290, 15, 3, 524291, 15, 3, 524292, 15, 3, 524293, 15, 3, 524294, 15, 9, 524295, 15, 65549, 524296, 15, 10, 524297, 15, 3, 524298, 15, 3, 524299, 15, 3, 524300, 15, 3, 524301, 15, 3, 524302, 15, 3, 524303, 15, 6, 589830, 15, 1, 589831, 15, 65549, 589832, 15, 2, 720891, 7, 0 )
+
+[node name="StreetSign" type="Node2D" parent="."]
+position = Vector2( 377, 49 )
+
+[node name="Sprite" type="Sprite" parent="StreetSign"]
+position = Vector2( 1, -28 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StreetSign"]
+position = Vector2( 1, -28 )
+scale = Vector2( 1.75, 1.75 )
+collision_layer = 3
+script = ExtResource( 3 )
+object_name = "street sign"
+dialogue = "Left - Heart
+Right - Brain
+Down - Appendix"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StreetSign/StaticBody2D"]
+position = Vector2( -1.52588e-05, 12 )
+shape = SubResource( 1 )
+
+[node name="Mouse 1" type="Sprite" parent="."]
+position = Vector2( 178, 227 )
+scale = Vector2( 0.5625, 0.5625 )
+z_index = -1
+texture = ExtResource( 6 )
+offset = Vector2( 9.15527e-05, 2.28882e-05 )
+
+[node name="Mouse 2" type="Sprite" parent="."]
+position = Vector2( 377, 36 )
+rotation = -0.0203229
+scale = Vector2( 0.5625, 0.5625 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="Mouse 4" type="Sprite" parent="."]
+position = Vector2( 34, 207 )
+rotation = 3.14159
+scale = Vector2( 0.5625, 0.5625 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="Tower 1" type="Node2D" parent="."]
+position = Vector2( 162, 227 )
+
+[node name="Sprite" type="Sprite" parent="Tower 1"]
+position = Vector2( 0, -28 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower 1"]
+position = Vector2( 0, -28 )
+scale = Vector2( 1.75, 1.75 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower 1/StaticBody2D"]
+position = Vector2( 0, 9.99999 )
+shape = SubResource( 2 )
+
+[node name="Tower 2" type="Node2D" parent="."]
+position = Vector2( 299, 91 )
+
+[node name="Sprite" type="Sprite" parent="Tower 2"]
+position = Vector2( 0, -22 )
+scale = Vector2( 1.4375, 1.4375 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower 2"]
+position = Vector2( 0, -7 )
+scale = Vector2( 1.4375, 1.4375 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower 2/StaticBody2D"]
+position = Vector2( -4.76837e-07, 1.90735e-06 )
+shape = SubResource( 7 )
+
+[node name="Tower 3" type="Node2D" parent="."]
+position = Vector2( 69, 36 )
+
+[node name="Sprite" type="Sprite" parent="Tower 3"]
+position = Vector2( 1.52588e-05, -31 )
+scale = Vector2( 2.0625, 2.0625 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower 3"]
+position = Vector2( 0, -8 )
+scale = Vector2( 2.0625, 2.0625 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower 3/StaticBody2D"]
+position = Vector2( 0, 0.484852 )
+shape = SubResource( 4 )
+
+[node name="Tower 4" type="Node2D" parent="."]
+position = Vector2( 426, 226 )
+
+[node name="Sprite" type="Sprite" parent="Tower 4"]
+position = Vector2( 0.0312042, -35.9688 )
+scale = Vector2( 2.31445, 2.31445 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower 4"]
+position = Vector2( 1.52588e-05, -13 )
+scale = Vector2( 2.31445, 2.31445 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower 4/StaticBody2D"]
+position = Vector2( -7.62939e-06, -9.53674e-07 )
+shape = SubResource( 5 )
+
+[node name="Mouse 3" type="Sprite" parent="Tower 4"]
+position = Vector2( -11, -41 )
+rotation = 2.94786
+scale = Vector2( 0.517578, 0.517578 )
+texture = ExtResource( 6 )
+offset = Vector2( 9.15527e-05, 2.28882e-05 )
+
+[node name="Toy" type="Sprite" parent="."]
+position = Vector2( 232, 12 )
+rotation = 0.309611
+scale = Vector2( 0.714256, 0.714256 )
+texture = ExtResource( 11 )
+
+[node name="Red Yarn" type="Sprite" parent="."]
+position = Vector2( 389, 230 )
+rotation = -0.206034
+scale = Vector2( 1.76, 1.76 )
+texture = ExtResource( 4 )
+
+[node name="Green Yarn" type="Sprite" parent="."]
+position = Vector2( 115, 71 )
+rotation = 0.533885
+scale = Vector2( 1.52, 1.52 )
+texture = ExtResource( 7 )
+
+[node name="LoadingZoneBrain" type="Area2D" parent="."]
+position = Vector2( 560, 176 )
+script = ExtResource( 12 )
+current_level = "stomach"
+to_level = "brain"
+preserve_y = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZoneBrain"]
+shape = SubResource( 8 )
+
+[node name="From_brain" type="Position2D" parent="."]
+position = Vector2( 528, 176 )
+__meta__ = {
+"_gizmo_extents_": 16.0
+}
+
+[node name="LoadingZoneAppendix" type="Area2D" parent="."]
+position = Vector2( 240, 336 )
+script = ExtResource( 12 )
+current_level = "stomach"
+to_level = "appendix"
+preserve_x = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZoneAppendix"]
+shape = SubResource( 8 )
+
+[node name="From_appendix" type="Position2D" parent="."]
+position = Vector2( 241, 312 )
+__meta__ = {
+"_gizmo_extents_": 16.0
+}
+
+[node name="LoadingZoneHeart" type="Area2D" parent="."]
+position = Vector2( -80, 176 )
+script = ExtResource( 12 )
+current_level = "stomach"
+to_level = "heart"
+preserve_y = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadingZoneHeart"]
+shape = SubResource( 10 )
+
+[node name="From_heart" type="Node2D" parent="."]
+position = Vector2( -48, 176 )
+
+[node name="LintBig" type="Sprite" parent="."]
+position = Vector2( 67, 167 )
+texture = ExtResource( 13 )
+offset = Vector2( 264, 53 )
+
+[node name="LintBig2" type="Sprite" parent="."]
+position = Vector2( -148, 156 )
+texture = ExtResource( 13 )
+offset = Vector2( 190, 12 )
+
+[node name="LintBig3" type="Sprite" parent="."]
+position = Vector2( 415, 60 )
+texture = ExtResource( 13 )
+
+[node name="CatBowl" type="Node2D" parent="."]
+position = Vector2( 441, 21 )
+
+[node name="Sprite" type="Sprite" parent="CatBowl"]
+texture = ExtResource( 15 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CatBowl"]
+position = Vector2( 1.52588e-05, -13 )
+scale = Vector2( 2.31445, 2.31445 )
+collision_layer = 3
+script = ExtResource( 3 )
+doer = "Ludwig"
+object_name = "food bowl"
+dialogue = "I wonder what cat food tastes like..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatBowl/StaticBody2D"]
+position = Vector2( 0.43206, 7.34516 )
+shape = SubResource( 9 )
+
+[node name="WelcomeSign" type="Sprite" parent="."]
+position = Vector2( 232, -59 )
+texture = ExtResource( 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WelcomeSign"]
+collision_layer = 2
+script = ExtResource( 3 )
+doer = "ludwig"
+object_name = "welcome sign"
+dialogue = "Welcome to coots
+Population: coots
+
+Wait... am I inside of coots???"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WelcomeSign/StaticBody2D"]
+position = Vector2( 0, 45.5 )
+shape = SubResource( 11 )
